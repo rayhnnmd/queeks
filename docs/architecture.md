@@ -1,0 +1,1 @@
+# Queeks — docs/architecture.md
