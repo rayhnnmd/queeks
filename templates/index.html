@@ -1,1 +1,100 @@
-<!-- Queeks — templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Queeks</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/styles.css') }}"
+    >
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="/" class="logo">queeks</a>
+
+        <nav class="nav-links">
+            <a href="#">Topics</a>
+            <a href="#">Progress</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+
+        <p class="eyebrow">COMPUTER SCIENCE QUIZZES</p>
+
+        <h1>
+            Learn computer science.
+            <span>One question at a time.</span>
+        </h1>
+        <p class="hero-text">
+            Practice DSA, programming, and computer science concepts
+            through quizzes that adapt as you learn.
+        </p>
+
+        <a href="#" class="start-button">
+            Start a quiz
+            <span>→</span>
+        </a>
+
+    </main>
+
+    <section class="topics">
+        <div class="section-heading">
+            <p class="eyebrow">EXPLORE</p>
+            <h2>Pick a topic.</h2>
+        </div>
+        <div class="topic-grid">
+
+            <a href="#" class="topic-card">
+                <span class="topic-number">01</span>
+
+                <div>
+                    <h3>Data Structures</h3>
+                    <p>Arrays, linked lists, stacks, trees and more.</p>
+                </div>
+
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <span class="topic-number">02</span>
+
+                <div>
+                    <h3>Python</h3>
+                    <p>Syntax, functions, data types and programming.</p>
+                </div>
+
+                <span class="arrow">→</span>
+            </a>
+            <a href="#" class="topic-card">
+                <span class="topic-number">03</span>
+
+                <div>
+                    <h3>C++</h3>
+                    <p>Pointers, OOP, STL and core concepts.</p>
+                </div>
+
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <span class="topic-number">04</span>
+
+                <div>
+                    <h3>Computer Science</h3>
+                    <p>DBMS, OS, networks and fundamental concepts.</p>
+                </div>
+
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>

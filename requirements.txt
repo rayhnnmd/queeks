@@ -1,1 +1,2 @@
-# Queeks — requirements.txt
+Flask
+python-dotenv
