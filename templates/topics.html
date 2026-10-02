@@ -1,1 +1,238 @@
-<!-- Queeks — templates/topics.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topics - Queeks</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/styles.css') }}"
+
+    >
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="/" class="logo">queeks</a>
+
+        <nav class="nav-links">
+            <a href="/topics">Topics</a>
+            <a href="#">Progress</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+
+    <main class="topics-page">
+
+        <section class="topics-intro">
+
+            <p class="eyebrow">EXPLORE QUEEKS</p>
+
+            <h1>
+                Choose what
+                <span>you want to learn.</span>
+            </h1>
+
+            <p>
+                Pick a subject and start testing what you know.
+                More topics will be added as Queeks grows.
+            </p>
+
+        </section>
+
+        <section class="topic-section" id="dsa">
+
+            <div class="topic-section-heading">
+                <span>01</span>
+
+                <div>
+                    <p class="eyebrow">DATA STRUCTURES & ALGORITHMS</p>
+                    <h2>Data Structures</h2>
+                </div>
+            </div>
+
+            <div class="subtopic-list">
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>01</span>
+                        <h3>Arrays</h3>
+                        <p>Indexing, traversal, searching and operations.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>02</span>
+                        <h3>Linked Lists</h3>
+                        <p>Nodes, pointers, insertion and deletion.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>03</span>
+                        <h3>Stacks</h3>
+                        <p>LIFO< operations and real-world applications.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>04</span>
+                        <h3>Queues</h3>
+                        <p>FIFO, circular queues and priority queues.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>05</span>
+                        <h3>Trees</h3>
+                        <p>Binary trees, BSTs, traversal and heaps.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>06</span>
+                        <h3>Graphs</h3>
+                        <p>Vertices, edges, BFS, DFS and graph algorithms.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+            </div>
+
+        </section>
+
+        <section class="topic-section">
+
+            <div class="topic-section-heading">
+                <span>02</span>
+
+                <div>
+                    <p class="eyebrow">PROGRAMMING</p>
+                    <h2>Languages</h2>
+                </div>
+            </div>
+
+            <div class="subtopic-list">
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>01</span>
+                        <h3>C</h3>
+                        <p>Basics, pointers, arrays and memory.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>02</span>
+                        <h3>C++</h3>
+                        <p>OOP, STL, pointers and modern C++ concepts.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>03</span>
+                        <h3>Python</h3>
+                        <p>Syntax, data types, functions and modules.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>04</span>
+                        <h3>Java</h3>
+                        <p>Classes, objects, inheritance and interfaces.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="topic-section">
+
+            <div class="topic-section-heading">
+                <span>03</span>
+
+                <div>
+                    <p class="eyebrow">COMPUTER SCIENCE</p>
+                    <h2>Core concepts</h2>
+                </div>
+            </div>
+
+            <div class="subtopic-list">
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>01</span>
+                        <h3>Object Oriented Programming</h3>
+                        <p>Classes, objects, inheritance and polymorphism.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>02</span>
+                        <h3>DBMS</h3>
+                        <p>Databases, SQL, normalization and transactions.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>03</span>
+                        <h3>Operating Systems</h3>
+                        <p>Processes, memory, scheduling and file systems.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+
+                <a href="#" class="subtopic">
+                    <div>
+                        <span>04</span>
+                        <h3>Computer Networks</h3>
+                        <p>Protocols, networking models and communication.</p>
+                    </div>
+
+                    <span class="subtopic-arrow">→</span>
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

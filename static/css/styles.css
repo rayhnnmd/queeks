@@ -220,3 +220,153 @@ a {
         grid-template-columns: 1fr;
     }
 }
+
+.topics-page {
+    width: min(1200px, calc(100% - 48px));
+    margin: 0 auto 120px;
+}
+
+.topics-intro {
+    max-width: 850px;
+    padding: 120px 0 100px;
+}
+
+.topics-intro h1 {
+    margin-top: 20px;
+
+    font-size: clamp(52px, 7vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -4px;
+}
+
+.topics-intro h1 span {
+    display: block;
+    color: var(--muted);
+}
+
+.topics-intro > p:last-child {
+    max-width: 500px;
+    margin-top: 30px;
+    color: (--muted);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.topic-section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.topic-section-heading > span {
+    color: var(--muted);
+
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.topic-section-heading h2 {
+    margin-top: 8px;
+
+    font-size: 32px;
+    letter-spacing: -1px;
+}
+
+.subtopic-list {
+    border-top: 1px solid var(--border);
+}
+
+.subtopic {
+    min-height: 110px;
+
+    padding: 24px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    border-bottom: 1px solid var(--border);
+
+    transition: padding 0.2s ease;
+}
+
+.subtopic:hover {
+    padding-left: 12px;
+}
+
+.subtopic > div {
+    display: grid;
+    grid-template-columns: 45px minmax(180px, 280px) 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.subtopic > div > span {
+    color: var(--muted);
+
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.subtopic h3 {
+    font-size: 19px;
+}
+
+.subtopic p {
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.subtopic:hover .subtopic-arrow {
+    transform: translateX(6px);
+}
+
+@media (max-width: 700px) {
+    .topics-page {
+        width: min(100% - 32px, 1200px);
+    }
+
+    .topics-intro {
+        padding: 80px 0 70px;
+    }
+
+    .topics-intro h1 {
+        font-size: 50px;
+        letter-spacing: -2px;
+    }
+
+    .topics-section-heading {
+        gap: 15px;
+    }
+
+    .topic-section-heading h2 {
+        font-size: 26px;
+    }
+
+    .subtopic {
+        padding: 20px 0;
+    }
+
+    .subtopic > div {
+        grid-template-columns: 32px 1fr;
+        gap: 8px 15px;
+    }
+
+    .subtopic h3 {
+        font-size: 17px;
+    }
+
+    .subtopic p {
+        grid-column: 2;
+    }
+
+    .subtopic-arrow {
+        font-size: 18px;
+    }
+}
