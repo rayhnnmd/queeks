@@ -23,21 +23,22 @@ client = genai.Client(api_key=api_key)
 
 def generate_question(topic, difficulty="Beginner"):
     prompt = f"""
-Generate one multiple choice computer science questions for Queeks.
+Create one computer science multiple choice question for Queeks.
 
 Topic: {topic}
 Difficulty: {difficulty}
 
-The question should:
-- have exactly 4 options
-- have only one correct answer
-- test understanding rather than memorization
-- be technically accurate
-- include a short explanation
-- avoid trick questions
+Give exactly four options and only one correct answer.
 
-Return the correct answer as the index of the option.
-The first option has index 0.
+The question should test understanding and should not be ambiguous or intentionally tricky.
+
+Also provide a short explanation of the correct answer.
+
+Return the correct answer as an index:
+0 = first option
+1 = second option
+2 = third option
+3 = fourth option
 """
 
     response = client.models.generate_content(
@@ -45,6 +46,7 @@ The first option has index 0.
         contents=prompt,
         config={
             "response_mime_type": "application/json",
+            "response_schema": QuizQuestion,
         },
     )
 

@@ -1,14 +1,8 @@
 from flask import Flask, render_template, jsonify, request
 from services.gemini_service import generate_question
-import json
+
 
 app = Flask(__name__)
-
-def load_quiz(quiz_name):
-    file_path = f"data/dsa/{quiz_name}.json"
-
-    with open(file_path, "r", encoding="utf-8") as file:
-        return json.load(file)
 
 @app.route("/")
 def home():
@@ -24,7 +18,7 @@ def quiz():
 
 @app.route("/api/question", methods=["POST"])
 def get_question():
-    data = request.get_json()
+    data = request.get_json() or {}
 
     topic = data.get("topic", "Arrays")
     difficulty = data.get("difficulty", "Beginner")
