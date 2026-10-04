@@ -1,1 +1,37 @@
-<!-- Queeks — templates/quiz.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+
+    <title>Quiz - Queeks</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+</head>
+
+<body>
+
+    <main class="quiz-page">
+
+        <header class="quiz-header">
+            <a href="/" class="logo">queeks</a>
+            <span id="difficulty">Beginner</span>
+        </header>
+
+        <section class="quiz-content">
+
+            <div class="quiz-meta">
+                <span id="topic">Arrays</span>
+                <span id="question-number">1</span>
+            </div>
+
+            <h1 id="question">Loading question...</h1>
+
+            <div id="options" class="options"></div>
+
+            <div id="explanation" class="explanation" hidden></div>
+
+            <button id="next-button" class="next-button" hidden>
+                Next
+            </button>

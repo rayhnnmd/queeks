@@ -4,11 +4,13 @@ const question = document.getElementById("question");
 const options = document.getElementById("options");
 const topic = document.getElementById("topic");
 const difficulty = document.getElementById("difficulty");
+const explanation = document.getElementById("explanation");
 const nextButton = document.getElementById("next-button");
 
 async function loadQuestion() {
     question.textContent = "Loading...";
     options.innerHTML = "";
+    explanation.hidden = true;
     nextButton.hidden = true;
 
     try {
@@ -27,7 +29,9 @@ async function loadQuestion() {
             throw new Error("Failed to load question");
         }
 
-        currentQuestion();
+        currentQuestion = await response.json();
+
+        displayQuestion();
 
     } catch (error) {
         console.error(error);
@@ -44,7 +48,7 @@ function displayQuestion() {
         const button = document.createElement("button");
 
         button.className = "option";
-        button.txtContent = answer;
+        button.textContent = answer;
 
         button.onclick = () => checkAnswer(index);
 
