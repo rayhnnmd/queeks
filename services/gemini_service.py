@@ -13,6 +13,7 @@ class QuizQuestion(BaseModel):
     explanation: str
     topic: str
     difficulty: str
+    concept: str
 
 api_key = os.getenv("GEMINI_API_KEY")
 
@@ -21,7 +22,10 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 
-def generate_question(topic, difficulty="Beginner"):
+def generate_question(topic, difficulty="Beginner", previous_concepts=None):
+    previous_concepts = previous_concepts or []
+    previous_text = ", ".join(previous_concepts)
+
     prompt = f"""
 Create one computer science multiple choice question for Queeks.
 
@@ -32,7 +36,17 @@ Give exactly four options and only one correct answer.
 
 The question should test understanding and should not be ambiguous or intentionally tricky.
 
-Also provide a short explanation of the correct answer.
+IMPORTANT:
+Do not text the same concept as any previous question.
+
+Previous concepts:
+{previous_text if previous_text else "None"}
+
+Choose a new concept from the topic. 
+
+Also provide:
+- a short explanation
+- the concept being tested
 
 Return the correct answer as an index:
 0 = first option
@@ -42,7 +56,7 @@ Return the correct answer as an index:
 """
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash-lite",
+        model="gemini-3.5-flash-lite",
         contents=prompt,
         config={
             "response_mime_type": "application/json",

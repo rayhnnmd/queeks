@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Quiz - Queeks</title>
 
@@ -23,7 +23,7 @@
 
             <div class="quiz-meta">
                 <span id="topic">Arrays</span>
-                <span id="question-number">1</span>
+                <span id="question-number">1 / 10</span>
             </div>
 
             <h1 id="question">Loading question...</h1>
@@ -35,3 +35,12 @@
             <button id="next-button" class="next-button" hidden>
                 Next
             </button>
+
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/quiz/quiz_controller.js') }}"></script>
+
+</body>
+</html>

@@ -26,6 +26,8 @@
 }
 
 .quiz-content {
+    max-width: 900px;
+    margin: 0 auto;
     padding-top: 70px;
 }
 
@@ -38,7 +40,7 @@
 }
 
 #question {
-    max-width: 750px;
+    max-width: 850px;
     margin: 0 0 35px;
     color: #fff;
     font-size: clamp(32px, 5vw, 54px);
@@ -49,7 +51,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 700px;
+    max-width: 850px;
 }
 
 .option {

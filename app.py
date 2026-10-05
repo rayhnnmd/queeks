@@ -22,11 +22,18 @@ def get_question():
 
     topic = data.get("topic", "Arrays")
     difficulty = data.get("difficulty", "Beginner")
+    previous_concepts = data.get("previous_concepts", [])
 
-    question = generate_question(topic, difficulty)
+    try:
+        question = generate_question(topic, difficulty, previous_concepts)
+        return jsonify(question.model_dump())
 
-    return jsonify(question.model_dump())
-    
+    except Exception as error:
+        print("Gemini error:", error)
+
+        return jsonify({
+            "error": str(error)
+        }), 500    
 
 if __name__ == "__main__":
     app.run(debug=True)
