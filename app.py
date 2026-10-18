@@ -16,6 +16,10 @@ def topics():
 def quiz():
     return render_template("quiz.html")
 
+@app.route("/results")
+def results():
+    return render_template("results.html")
+
 @app.route("/api/question", methods=["POST"])
 def get_question():
     data = request.get_json() or {}

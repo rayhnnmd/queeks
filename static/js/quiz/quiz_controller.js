@@ -111,7 +111,10 @@ function checkAnswer(selectedIndex) {
 
 nextButton.onclick = () => {
     if (questionCount >= 10) {
-        nextButton.hidden = true;
+        sessionStorage.setItem("quizScore", score);
+        sessionStorage.setItem("quizTotal", questionCount);
+
+        window.location.href = "/results";
         return;
     }
 
