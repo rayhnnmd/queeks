@@ -11,6 +11,8 @@ const difficulty = document.getElementById("difficulty");
 const questionNumber = document.getElementById("question-number");
 const explanation = document.getElementById("explanation");
 const nextButton = document.getElementById("next-button");
+const selectedTopic = new URLSearchParams(window.location.search)
+    .get("topic") || "Arrays";
 
 async function loadQuestion() {
     question.textContent = "Loading...";
@@ -26,7 +28,7 @@ async function loadQuestion() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                topic: "Arrays",
+                topic: selectedTopic,
                 difficulty: "Beginner",
                 previous_concepts: previousConcepts
             })
