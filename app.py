@@ -23,20 +23,25 @@ def results():
 @app.route("/api/question", methods=["POST"])
 def get_question():
     data = request.get_json() or {}
-
     topic = data.get("topic", "Arrays")
     difficulty = data.get("difficulty", "Beginner")
     previous_concepts = data.get("previous_concepts", [])
+    previous_correct_positions = data.get("previous_correct_positions", [])
+    previous_questions = data.get("previous_questions", [])
 
     try:
-        question = generate_question(topic, difficulty, previous_concepts)
+        question = generate_question(
+            topic=topic,
+            difficulty=difficulty,
+            previous_concepts=previous_concepts,
+            previous_correct_positions=previous_correct_positions,
+            previous_questions=previous_questions
+        )
         return jsonify(question.model_dump())
-
     except Exception as error:
         print("Gemini error:", error)
-
         return jsonify({
-            "error": str(error)
+            "error": "Could not generate the question. Please try again."
         }), 500    
 
 if __name__ == "__main__":

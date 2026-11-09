@@ -2,7 +2,13 @@ let currentQuestion = null;
 let questionCount = 0;
 let score = 0;
 let answered = false;
+let correctAnswers = 0;
+let incorrectAnswers = 0;
+let conceptResults = {};
+
 let previousConcepts = [];
+let previousCorrectPositions = [];
+let previousQuestions = [];
 
 const question = document.getElementById("question");
 const options = document.getElementById("options");
@@ -11,8 +17,8 @@ const difficulty = document.getElementById("difficulty");
 const questionNumber = document.getElementById("question-number");
 const explanation = document.getElementById("explanation");
 const nextButton = document.getElementById("next-button");
-const selectedTopic = new URLSearchParams(window.location.search)
-    .get("topic") || "Arrays";
+const selectedTopic = new URLSearchParams(window.location.search).get("topic") || "Arrays";
+topic.textContent = selectedTopic;
 
 async function loadQuestion() {
     question.textContent = "Loading...";
@@ -30,7 +36,9 @@ async function loadQuestion() {
             body: JSON.stringify({
                 topic: selectedTopic,
                 difficulty: "Beginner",
-                previous_concepts: previousConcepts
+                previous_concepts: previousConcepts,
+                previous_correct_positions: previousCorrectPositions,
+                previous_questions: previousQuestions
             })
         });
 
@@ -41,6 +49,8 @@ async function loadQuestion() {
         }
 
         currentQuestion = data;
+        previousCorrectPositions.push(data.correct_answer);
+        previousQuestions.push(data.question);
 
         if (!previousConcepts.includes(data.concept)) {
             previousConcepts.push(data.concept);
@@ -56,6 +66,8 @@ async function loadQuestion() {
         question.textContent = "Could not load the question.";
         explanation.textContent = error.message;
         explanation.hidden = false;
+        nextButton.textContent = "Retry";
+        nextButton.hidden = false;
     }
 }
 
