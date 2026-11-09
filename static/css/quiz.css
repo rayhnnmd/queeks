@@ -230,3 +230,21 @@
     }
 }
 
+.concept-result {
+    padding: 14px 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.concept-result h3 {
+    font-size: 1rem;
+    margin: 0 0 6px;
+}
+
+.concept-result p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
