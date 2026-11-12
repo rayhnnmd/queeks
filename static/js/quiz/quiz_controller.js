@@ -9,6 +9,7 @@ let conceptResults = {};
 let previousConcepts = [];
 let previousCorrectPositions = [];
 let previousQuestions = [];
+let answerHistory = [];
 
 const question = document.getElementById("question");
 const options = document.getElementById("options");
@@ -98,6 +99,8 @@ function checkAnswer(selectedIndex) {
 
     const buttons = document.querySelectorAll(".option");
     const correctIndex = currentQuestion.correct_answer;
+    const concept = currentQuestion.concept || "General";
+
     buttons.forEach((button, index) => {
         button.disabled = true;
 
@@ -106,11 +109,35 @@ function checkAnswer(selectedIndex) {
         }
     });
 
-    if (selectedIndex === correctIndex) {
+    if (!conceptResults[concept]) {
+        conceptResults[concept] = {
+            correct: 0,
+            incorrect: 0
+        };
+    }
+
+    const isCorrect = selectedIndex === correctIndex;
+
+    if (isCorrect) {
         score++;
+        correctAnswers++;
+        conceptResults[concept].correct++;
     } else {
+        incorrectAnswers++;
+        conceptResults[concept].incorrect++;
         buttons[selectedIndex].classList.add("wrong");
     }
+
+    answerHistory.push({
+        question: currentQuestion.question,
+        options: currentQuestion.options,
+        selectedAnswer: selectedIndex,
+        correctAnswer: correctIndex,
+        explanation: currentQuestion.explanation,
+        concept: concept,
+        isCorrect: isCorrect
+    });
+
     explanation.textContent = currentQuestion.explanation;
     explanation.hidden = false;
     nextButton.hidden = false;
@@ -124,9 +151,13 @@ function checkAnswer(selectedIndex) {
 }
 
 nextButton.onclick = () => {
-    if (questionCount >= 10) {
+    if (questionCount >= 10 && answered) {
         sessionStorage.setItem("quizScore", score);
         sessionStorage.setItem("quizTotal", questionCount);
+        sessionStorage.setItem("correctAnswer", correctAnswers);
+        sessionStorage.setItem("incorrectAnswers", incorrectAnswers);
+        sessionStorage.setItem("conceptResults", JSON.stringify(conceptResults));
+        sessionStorage.setItem("answerHistory", JSON.stringify(answerHistory));
 
         window.location.href = "/results";
         return;
@@ -134,5 +165,3 @@ nextButton.onclick = () => {
 
     loadQuestion();
 };
-
-loadQuestion();
